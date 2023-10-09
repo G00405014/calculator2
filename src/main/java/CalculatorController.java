@@ -1,21 +1,13 @@
-
 @RestController
 public class CalculatorController {
 
 
-    public static class Response {
-        private String operation;
-        private double total;
 
-        // Getters and setters
-    }
-
-    //Create the calculate method
-    @GetMapping("/calculate")
+    @GetMapping("/calculate/{num1}/{num2}/{operation}")
     public Response calculate(
-            @RequestParam double num1,
-            @RequestParam double num2,
-            @RequestParam String operation) {
+            @PathVariable double num1,
+            @PathVariable double num2,
+            @PathVariable String operation) {
 
         double result = 0;
         switch (operation.toLowerCase()) {
